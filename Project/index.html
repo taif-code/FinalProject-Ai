@@ -1,54 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <title>المرشد السياحي الذكي</title>
-</head>
-<body>
-    <h1>🧭 مرشد سياحي ذكي</h1>
-
-    <h3>✍️ اسأل عن معلم:</h3>
-    <form id="text-form">
-        <input type="text" name="text" placeholder="أدخل سؤالك هنا...">
-        <button type="submit">إرسال</button>
-    </form>
-
-    <h3>🎤 أرسل ملف صوتي:</h3>
-    <form id="audio-form" enctype="multipart/form-data">
-        <input type="file" name="audio">
-        <button type="submit">رفع الصوت</button>
-    </form>
-
-    <h3>🖼️ أرسل صورة معلم:</h3>
-    <form id="image-form" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <button type="submit">رفع الصورة</button>
-    </form>
-
-    <h3>📄 النتيجة:</h3>
-    <div id="response-box"></div>
-
-    <script>
-        function handleForm(formId, url, inputName) {
-            const form = document.getElementById(formId);
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(form);
-                fetch(url, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('response-box').innerText = data.answer + "\n🌐 المصدر: " + data.source;
-                })
-                .catch(err => alert("❌ Error: " + err));
-            });
-        }
-
-        handleForm("text-form", "/analyze_text");
-        handleForm("audio-form", "/analyze_audio");
-        handleForm("image-form", "/analyze_image");
-    </script>
-</body>
-</html>
