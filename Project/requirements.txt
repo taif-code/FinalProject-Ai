@@ -1,0 +1,29 @@
+# الذكاء الاصطناعي والتضمين
+openai
+langchain
+langchain_community
+langchain_openai
+transformers
+torch
+faiss-cpu
+
+# تحليل اللغة والتعرف على اللغة
+langdetect
+wikipedia
+serpapi
+
+# الصوت
+whisper
+SpeechRecognition
+pydub
+
+# الصور
+Pillow
+
+# واجهات وتطبيقات
+flask
+flask-cors
+werkzeug
+
+# بيئة
+python-dotenv
